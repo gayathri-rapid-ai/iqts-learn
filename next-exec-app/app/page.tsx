@@ -269,29 +269,30 @@ export default function HomePage() {
 
   // Layout styles (kept simple; Tailwind is applied in layout for global areas)
   const shell: React.CSSProperties = { display: 'flex', gap: 12, alignItems: 'stretch' };
-  const sidebar: React.CSSProperties = { width: 300, flex: '0 0 300px', border: '1px solid #d0d0d5', borderRadius: 6, background: '#fff', overflow: 'hidden' };
-  const sidebarHeader: React.CSSProperties = { padding: 12, fontWeight: 700, borderBottom: '1px solid #e5e7ea', background: '#f6f7f9' };
+  const sidebar: React.CSSProperties = { width: 300, flex: '0 0 300px', borderRadius: 6, background: '#fff', overflow: 'hidden', boxShadow: '0 10px 24px rgba(41, 100, 176, 0.08)' };
+  const sidebarHeader: React.CSSProperties = { padding: 12, fontWeight: 700, background: '#f8fbff' };
   const sidebarList: React.CSSProperties = { listStyle: 'none', margin: 0, padding: 8, maxHeight: 700, overflow: 'auto' };
   const sidebarItem = (active: boolean): React.CSSProperties => ({ margin: 0, padding: 0 });
   const sidebarBtn = (active: boolean): React.CSSProperties => ({
-    display: 'block', width: '100%', textAlign: 'left', border: '1px solid ' + (active ? '#5b9bff' : '#e1e4ea'),
-    background: active ? '#eaf2ff' : '#fff', color: '#111', borderRadius: 6, padding: 10, marginBottom: 8, cursor: 'pointer'
+    display: 'block', width: '100%', textAlign: 'left', border: '0',
+    background: active ? '#edf4ff' : '#fff', color: '#111', borderRadius: 6, padding: 10, marginBottom: 8, cursor: 'pointer',
+    boxShadow: active ? 'inset 0 0 0 1px rgba(69, 122, 197, 0.34)' : 'inset 0 0 0 1px rgba(227, 229, 234, 0.7)'
   });
 
   const panelStyle: React.CSSProperties = {
     flex: '1 1 520px',
     minWidth: 0,
-    border: '1px solid #d0d0d5',
     borderRadius: 6,
     overflow: 'hidden',
-    background: '#11151b'
+    background: '#11151b',
+    boxShadow: '0 10px 24px rgba(41, 100, 176, 0.08)'
   };
-  const controlsRow: React.CSSProperties = { display: 'flex', gap: 8, alignItems: 'center', padding: 10, background: '#fff', color: '#111', borderBottom: '1px solid #d0d0d5' };
+  const controlsRow: React.CSSProperties = { display: 'flex', gap: 8, alignItems: 'center', padding: 10, background: '#fff', color: '#111', borderBottom: '1px solid rgba(227, 229, 234, 0.7)' };
 
-  const tabsRow: React.CSSProperties = { display: 'flex', gap: 8, alignItems: 'center', padding: 8, background: '#fff', border: '1px solid #d0d0d5', borderRadius: 6 };
-  const tabBtn = (active: boolean): React.CSSProperties => ({ padding: '6px 10px', borderRadius: 6, border: '1px solid ' + (active ? '#4378ff' : '#e3e5ea'), background: active ? '#eaf2ff' : '#fff', cursor: 'pointer' });
+  const tabsRow: React.CSSProperties = { display: 'flex', gap: 8, alignItems: 'center', padding: 8, background: '#fff', borderRadius: 6, boxShadow: '0 10px 24px rgba(41, 100, 176, 0.08)' };
+  const tabBtn = (active: boolean): React.CSSProperties => ({ padding: '6px 10px', borderRadius: 6, border: '0', background: active ? '#edf4ff' : '#fff', color: active ? '#31527d' : '#111', cursor: 'pointer', boxShadow: active ? 'inset 0 0 0 1px rgba(69, 122, 197, 0.18)' : 'inset 0 0 0 1px rgba(227, 229, 234, 0.45)' });
 
-  const modePill = (active: boolean): React.CSSProperties => ({ padding: '4px 8px', borderRadius: 6, border: '1px solid ' + (active ? '#4378ff' : '#e3e5ea'), background: active ? '#eaf2ff' : '#fff', cursor: 'pointer' });
+  const modePill = (active: boolean): React.CSSProperties => ({ padding: '4px 8px', borderRadius: 6, border: '0', background: active ? '#edf4ff' : '#fff', color: active ? '#31527d' : '#111', cursor: 'pointer', boxShadow: active ? 'inset 0 0 0 1px rgba(69, 122, 197, 0.18)' : 'inset 0 0 0 1px rgba(227, 229, 234, 0.45)' });
 
   return (
     <div>
