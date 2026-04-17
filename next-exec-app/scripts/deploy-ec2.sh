@@ -49,7 +49,7 @@ fi
 cd "$RUN_DIR"
 
 echo "==> Installing dependencies"
-npm ci
+npm ci --no-audit --no-fund --progress=false
 
 echo "==> Building app"
 npm run build
