@@ -1,7 +1,9 @@
 import "./globals.css";
+import Link from "next/link";
+import AddSectionButton from "./add-section-button";
 import HeaderDropdown from "./header";
-import { data } from "./data";
 import { Manrope, Space_Grotesk } from "next/font/google";
+import { getAppData } from "../lib/tutorial-store";
 
 const bodyFont = Manrope({
   subsets: ["latin"],
@@ -18,11 +20,15 @@ export const metadata = {
   description: "Interactive code execution and learning space",
 };
 
-export default function RootLayout({
+export const dynamic = "force-dynamic";
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const appData = await getAppData();
+
   return (
     <html lang="en">
       <head>
@@ -35,13 +41,18 @@ export default function RootLayout({
         <header className="site-header">
           <div className="site-header__inner">
             <div className="site-brand">
-              <h1 className="site-brand__title">IQ Space</h1>
+              <Link href="/" className="site-brand__title">
+                IQ Space
+              </Link>
             </div>
-            <nav className="site-nav">
-              {data.headers.map((header) => (
-                <HeaderDropdown key={header.title} name={header.title} appHeader={header} />
-              ))}
-            </nav>
+            <div className="site-header__actions">
+              <nav className="site-nav">
+                {appData.headers.map((header) => (
+                  <HeaderDropdown key={header.title} name={header.title} appHeader={header} />
+                ))}
+              </nav>
+              <AddSectionButton />
+            </div>
           </div>
         </header>
         <main className="page-frame">
